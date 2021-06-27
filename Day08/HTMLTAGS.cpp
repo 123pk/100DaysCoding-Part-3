@@ -2,6 +2,7 @@
 Platform :- Codechef
 Contest :- Codechef June Lunchtime
 Problem :- HTMLTAGS
+Hint:- Don't forget that you need atleast one valid character between '</' & '>'
 */
 
 #include <iostream>
