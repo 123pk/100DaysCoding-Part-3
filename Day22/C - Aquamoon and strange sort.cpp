@@ -25,23 +25,24 @@ int main(){
         
         sort(A,A+n);
         int f=0;
+     //   set<int>used;
         for(int i=0;i<n;++i){
-            vector<int>temp=P[A[i]];
+            int d=0;
             int idx=0;
-            for(int j=0;j<temp.size();++j){
-                int z=abs(temp[j]-i);
+            for(auto &x:P[A[i]]){
+                int z=abs(x-i);
                 if(z%2==0){
-                    idx=j+1;
+                    idx=d+1;
                     break;
                 }
+                d++;
             }
             
             if(idx==0){
                 f=1;break;
             }
-            idx--;
-            temp.erase(temp.begin()+idx);
-            P[A[i]]=temp;
+             idx--;
+            P[A[i]].erase(P[A[i]].begin()+idx);
         }
         
         if(f)cout<<"NO\n";
