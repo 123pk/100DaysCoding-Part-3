@@ -1,6 +1,6 @@
 /*
 Platform :- Codeforces
-Contest :- 
+Contest :- Harbour.Space Scholarship Contest 2021-2022 (open for everyone, rated, Div. 1 + Div. 2)
 Approach :- we have 3 cases 
            case 1 :- both players score in '?' situation
            case 2:- player 1 scored in '?' and player 2 don't
