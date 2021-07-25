@@ -7,3 +7,31 @@ Approach :- You need to note that for an index 'i' we try to find next greater e
              At the end return the ans after reversing it
 ** One of the beautiful problems that I have seen in leetcode
 */
+class Solution {
+public:
+     
+    vector<int> canSeePersonsCount(vector<int>& heights) {
+        vector<int>ans;
+        stack<int>P;
+        int n=heights.size();
+        for(int i=n-1;i>=0;--i){
+            if(i==n-1)ans.push_back(0);
+            else{
+                int c=0;
+                while(!P.empty()){
+                    if(P.top()<heights[i]){
+                        c++;
+                        P.pop();
+                    }
+                    else break;
+                }
+                if(!P.empty())c++;
+                ans.push_back(c);
+            }
+            P.push(heights[i]);
+        }
+        
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
