@@ -21,9 +21,6 @@ public:
                 }
             }
         }
-        
-        
-            
             
         // performing BFS on points where mat[i][j] = 0 
             while(!P.empty()){
