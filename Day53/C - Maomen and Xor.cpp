@@ -1,6 +1,7 @@
 /*
 Platform :- Codeforces 
 Contest :- Codeforces Round 737 Div 2
+Note :- You need to have basic understanding of bitmask , and and xor operation before looking into this problem
 Approach :- There are three cases :- 
            1. If k==0 then answer is always '1'
            2. If 'n' is odd , then we comupute nCr for all r from n-1 to 2 and intial value of ans=2 , then we sum all the value of nCr 
