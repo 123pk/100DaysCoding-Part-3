@@ -1,8 +1,49 @@
 /*
-Platform :- Codedrills
-Contest :- Interview Preperation 16
-Approach :- Maintain two stack one of string and one of integers , first push intger in stack and then followed by character( in string format) then when you get ']' pop out the
-            top string and integer value from stack . i.e. ( 3 , "a" )we have these now change "a"---> "aaa" and if stack of string is empty then push this value in stack else
-            take the top element and add with this string and push it back .
-            return the last formed string of stack at the end
+Platform :- Leetcode
+Contest :- Decode string
+Hint :- Stack
 */
+class Solution {
+public:
+    string decodeString(string s) {
+        stack<char> st;
+        string t = "";
+        for(int i = 0; i < s.length(); i++) {
+            if(s[i] != ']') {
+                st.push(s[i]);
+            } else {
+                string temp = "";
+                while(!st.empty() && st.top() != '[') {
+                    temp += st.top();
+                    st.pop();
+                }
+                st.pop();
+                
+                reverse(temp.begin(), temp.end());
+                string num = "";
+                while(!st.empty() && st.top() >= '0' && st.top() <= '9') {
+                    num += st.top();
+                    st.pop();
+                }
+                    
+                reverse(num.begin(), num.end());
+                
+                int n = stoi(num);
+                
+                for(int i = 0; i < n; i++) {
+                    for(int j = 0; j < temp.length(); j++) {
+                        st.push(temp[j]);
+                    }
+                }
+                
+            }
+        }
+        string ans = "";
+        while(!st.empty()) {
+            ans += st.top();
+            st.pop();
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
