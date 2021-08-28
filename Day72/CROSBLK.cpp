@@ -6,3 +6,45 @@ Approach :- Analyse the problem you will find we need to find longest increasing
             where we can reach the last element , if we are at first element we will check if ( current_max > A[i]) then we can never reach out last element else we can reach and increment 
             your answer by 1
 */
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    
+    while(t--){
+        int n;
+        cin>>n;
+        
+        long long A[n];
+        int f=0;
+        for(int i=0;i<n;++i){
+            cin>>A[i];
+        }
+        reverse(A,A+n);
+        long long mx=A[0];
+        int ans=0;
+        for(int i=1;i<n;++i){
+            if(i==n-1){
+                if(mx>A[i]){
+                    f=1;
+                }
+                else ans++;
+            }
+            else{
+                if(mx<A[i]){
+                    ans++;
+                    mx=A[i];
+                }
+                 
+            }
+        }
+        
+        if(f)cout<<"-1\n";
+        else{
+             
+            cout<<ans<<"\n";
+        }
+    }
+}
