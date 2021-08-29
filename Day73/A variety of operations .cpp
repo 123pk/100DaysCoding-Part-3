@@ -1,6 +1,6 @@
 /*
 Platform :- Codeforces
-Contest :- Codeforces Deltix round 742 Div(1+2)
+Contest :- Codeforces Deltix round Div(1+2)
 Approach :- You just need to analyse that there are 3 cases :- 
             Case 1:- Difference is odd --> not possible 
             Case 2:- Even difference and a = b 
