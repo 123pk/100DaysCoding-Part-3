@@ -15,36 +15,55 @@ using namespace std;
 int main() {
 
     ifstream fin;
-    fin.open("input.txt");
+    fin.open("input3.txt");
     ofstream fout;
     fout.open("output.txt");
 
     int t;
     fin>>t;
+    
+    for(int z=1;z<=t;++z){
+    	fout<<"Case #"<<z<<": ";
+    string s;
+    fin>>s;
+    
+    int c=0;
+    int n = s.size();
+    vector<int>P(26);
+    for(int i=0;i<n;++i){
+    	char x = s[i];
+        if(x=='A'||x=='E'||x=='I'||x=='O'||x=='U'){
+            c++;
+        }
+        P[x-'A']++;
+    }
+    
+     //cost of converting all to one vowel
+     int temp = n-c;
+     int cost1=0;
+     cost1+=temp;
+     int mx1=0,mx2=0;
+     for(char ch='A';ch<='Z';++ch){
+         if(ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U'){
+             mx1 = max(mx1,P[ch-'A']);
+         }
+         else mx2 = max(mx2,P[ch-'A']);
+     }
+     
+     cost1+=(c-mx1)*2;
+     //cost of coverting all to one consonent
+     int cost2 = c;
+     cost2+=(temp-mx2)*2;
+     
+     
+     //ans is min of cost1 and cost2
+     int ans = min(cost1,cost2);
+     fout<<ans<<"\n";
+  }
 
-    for(int z=1;z<=t;++z)
-    {
-
-        long int n;
-        fin>>n;
-
-        string s;
-        fin>>s;
-
-        long int c=count(s.begin(),s.end(),'A');
-        long int d=s.size()-c;
-        long int p=s.size()/2;
-        if(p==c||p==d)
-      {
-	fout<<"Case #"<<z<<": "<<"Y"<<endl;
-	}
-	else
-	{
-		fout<<"Case #"<<z<<": "<<"N"<<endl;
-	}
-      }
-	
-      fin.close();
-      fout.close();
-      getch();
+     
+    fin.close();
+    fout.close();
+    getch();
 }
+
