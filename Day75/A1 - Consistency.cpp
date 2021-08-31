@@ -35,19 +35,16 @@ int main() {
         long int d=s.size()-c;
         long int p=s.size()/2;
         if(p==c||p==d)
-        {
-        	fout<<"Case #"<<z<<": "<<"Y"<<endl;
-		}
-		else
-		{
-			fout<<"Case #"<<z<<": "<<"N"<<endl;
-		}
-
-
-        
-
-    }
-    fin.close();
-    fout.close();
-    getch();
+      {
+	fout<<"Case #"<<z<<": "<<"Y"<<endl;
+	}
+	else
+	{
+		fout<<"Case #"<<z<<": "<<"N"<<endl;
+	}
+      }
+	
+      fin.close();
+      fout.close();
+      getch();
 }
