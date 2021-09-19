@@ -11,7 +11,7 @@ public:
         int ans=0;
         int mx  = 0,mn = INT_MAX;
         int n = nums.size();
-        //if max element is not at last position or min element is not at first position
+       
         vector<int>pref(n),suff(n);
         for(int i=0;i<nums.size();++i){
              mx=max(mx,nums[i]);
@@ -24,7 +24,7 @@ public:
         }
         
         int f=0;
-        //check for condition 1 
+         
          for(int i=1;i<n-1;++i){
              if(nums[i]>pref[i-1] && nums[i]<suff[i+1]){
                  ans+=2;
